@@ -1,13 +1,17 @@
-import { Component } from '@angular/core';
-import { MessageService } from './message.spec';
+import { Injectable } from '@angular/core';
 
-@Component({
-  selector: 'app-messages',
-  templateUrl: './message.html',
-  styleUrls: ['./message.css']
+@Injectable({
+  providedIn: 'root',
 })
-export class MessagesComponent {
+export class MessageService {
+  messages: string[] = [];
 
-  constructor(public messageService: MessageService) {}
+  add(message: string) {
+    this.messages.push(message);
+  }
 
+  clear() {
+    this.messages = [];
+  }
 }
+
